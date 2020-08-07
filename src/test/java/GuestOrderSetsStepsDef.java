@@ -42,9 +42,9 @@ public class GuestOrderSetsStepsDef {
         @And("^the user navigates to Checkout$")
         public void goToCheckout()  {
             WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("ul.pull-right div a:nth-of-type(2)")));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".list-inline li:nth-of-type(5)")));
 
-            WebElement miniCartCheckoutLink = driver.findElement(By.cssSelector("ul.pull-right div a:nth-of-type(2)"));
+            WebElement miniCartCheckoutLink = driver.findElement(By.cssSelector(".list-inline li:nth-of-type(5)"));
             miniCartCheckoutLink.click();
 
         }
@@ -57,7 +57,9 @@ public class GuestOrderSetsStepsDef {
         }
         @And("^the user clicks on Continue button$")
     public void clickOnContinueButton()  {
-            WebElement continueButton = driver.findElement(By.id("button-account"));
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#button-account")));
+            WebElement continueButton = driver.findElement(By.cssSelector("#button-account"));
             continueButton.click();
         }
         @And("^the user enters first name \"([^\"]*)\" last name \"([^\"]*)\" telephone \"([^\"]*)\" address \"([^\"]*)\" city \"([^\"]*)\" postcode \"([^\"]*)\" country \"([^\"]*)\" region \"([^\"]*)\"$")
@@ -94,5 +96,23 @@ public class GuestOrderSetsStepsDef {
             driver.findElement(By.id("input-payment-email")).sendKeys(randomEmail);
 
         }
+
+    @And("the user agrees with policy")
+    public void theUserAgreesWithPolicy() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".clearfix [type='checkbox']")));
+            WebElement agreeWithPolicyCheckbox = driver.findElement(By.cssSelector(".clearfix [type='checkbox']"));
+            agreeWithPolicyCheckbox.click();
+
+
+
     }
+
+    @And("the user clicks on Continue button in Billing Details")
+    public void theUserClicksOnContinueButtonInBillingDetails() {
+            WebElement continueBtnBilling = driver.findElement(By.cssSelector("#button-guest"));
+            continueBtnBilling.click();
+
+    }
+}
 

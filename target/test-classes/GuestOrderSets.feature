@@ -8,7 +8,7 @@ Feature: As a user I want to be able to make an Order
     And the user clicks on Continue button
     And the user enters first name "<firstName>" last name "<lastName>" telephone "<telephone>" address "<address>" city "<city>" postcode "<postcode>" country "<country>" region "<region>"
     And the user enters random email
-    And the user clicks on Continue button
+    And the user clicks on Continue button in Billing Details
 
     Examples:
     |firstName      | lastName      | telephone|address         |city   |postcode |country  |region|
