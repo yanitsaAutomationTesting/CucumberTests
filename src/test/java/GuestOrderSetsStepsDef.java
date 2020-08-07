@@ -2,7 +2,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.Random;
 
 
@@ -19,7 +18,7 @@ public class GuestOrderSetsStepsDef {
         private WebDriver driver;
         @Before
         public void setup() {
-            System.setProperty("webdriver.chrome.driver", "E:\\drivers\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "C:\\Users\\yanit\\webDrivers\\chromedriver.exe");
             this.driver = new ChromeDriver();
             driver.manage().window().maximize();
         }
@@ -33,7 +32,7 @@ public class GuestOrderSetsStepsDef {
         @Given("^the user has navigate to iphone product page$")
            public void navigateToiphonePage ()  {
             driver.get("http://shop.pragmatic.bg/index.php?route=product/product&product_id=40");
-        };
+        }
 
         @And("^the user adds the product to the cart$")
            public void addToCart()  {
@@ -90,9 +89,9 @@ public class GuestOrderSetsStepsDef {
         }
         @And("^the user enters random email$")
         public void enterRandomEmail()  {
+
             String randomEmail = RandomStringUtils.randomAlphanumeric(7) + "@blabla.com";
             driver.findElement(By.id("input-payment-email")).sendKeys(randomEmail);
-
 
         }
     }

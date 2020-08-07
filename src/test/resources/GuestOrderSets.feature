@@ -1,5 +1,5 @@
 Feature: As a user I want to be able to make an Order
-
+@regression
   Scenario Outline: Make aa successful placement of Guest Order
     Given the user has navigate to iphone product page
     And the user adds the product to the cart
